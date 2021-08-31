@@ -1,6 +1,5 @@
 pragma solidity ^0.8.4;
 
-import "https://github.com/ConsenSysMesh/openzeppelin-solidity/blob/master/contracts/token/ERC20/BasicToken.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/math/SafeMath.sol";
 
 
