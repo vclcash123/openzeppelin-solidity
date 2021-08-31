@@ -1,4 +1,5 @@
 /* solium-disable security/no-block-members */
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.4;
 
