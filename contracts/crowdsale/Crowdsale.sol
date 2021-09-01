@@ -76,9 +76,7 @@ contract Crowdsale {
   /**
    * @dev fallback function ***DO NOT OVERRIDE***
    */
-  function () external payable {
-    buyTokens(msg.sender);
-  }
+ 
 
   /**
    * @dev low level token purchase ***DO NOT OVERRIDE***
@@ -87,6 +85,7 @@ contract Crowdsale {
   function buyTokens(address _beneficiary) public payable {
 
     uint256 weiAmount = msg.value;
+     buyTokens(msg.sender);
     _preValidatePurchase(_beneficiary, weiAmount);
 
     // calculate token amount to be created
