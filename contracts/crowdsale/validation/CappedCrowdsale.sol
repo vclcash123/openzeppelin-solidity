@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: <SPDX-LICENSE>
+
 pragma solidity ^0.8.4;
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/math/SafeMath.sol";
