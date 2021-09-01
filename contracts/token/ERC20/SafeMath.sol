@@ -1,6 +1,6 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT License Modern Variant
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.7;
 
 // CAUTION
 // This version of SafeMath should only be used with Solidity 0.8 or later,
@@ -19,11 +19,12 @@ library SafeMath {
      * _Available since v3.4._
      */
     function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {
-        unchecked {
+        
+      unchecked {
             uint256 c = a + b;
             if (c < a) return (false, 0);
             return (true, c);
-        }
+         }
     }
 
     /**
