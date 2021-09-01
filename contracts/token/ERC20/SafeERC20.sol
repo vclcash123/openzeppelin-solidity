@@ -1,7 +1,9 @@
-pragma solidity ^0.4.23;
+// SPDX-License-Identifier: MIT License Modern Variant
 
-import "./ERC20Basic.sol";
-import "./ERC20.sol";
+pragma solidity ^0.8.7;
+
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/ERC20Basic.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/ERC20.sol";
 
 
 /**
