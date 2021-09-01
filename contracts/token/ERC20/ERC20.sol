@@ -7,10 +7,9 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contrac
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20Metadata.sol";
 
 
-/**
- * @title ERC20 interface
+/** title ERC20 interface
  * @dev see https://github.com/ethereum/EIPs/issues/20
-  File: @openzeppelin/contracts/utils/Context.sol
+ * openzeppelin/contracts/utils/Context.sol
  * @dev Implementation of the {IERC20} interface.
  *
  * This implementation is agnostic to the way tokens are created. This means
