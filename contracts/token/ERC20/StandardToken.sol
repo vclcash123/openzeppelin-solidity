@@ -1,6 +1,6 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: <SPDX-Universal Permissive License v1.0>
 
-pragma solidity ^0.4.23;
+pragma solidity ^0.8.7;
 
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/BasicToken.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/ERC20.sol";
