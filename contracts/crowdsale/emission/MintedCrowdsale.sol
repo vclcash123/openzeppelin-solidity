@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Universal Permissive License v1.0
 
 pragma solidity ^0.8.7;
 
