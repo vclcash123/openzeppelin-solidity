@@ -1,5 +1,6 @@
-pragma solidity ^0.4.23;
+// SPDX-License-Identifier: MIT License Modern Variant
 
+pragma solidity ^0.8.7;
 
 /**
  * @title ERC20Basic
