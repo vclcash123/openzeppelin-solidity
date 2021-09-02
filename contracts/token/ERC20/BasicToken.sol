@@ -7,9 +7,9 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contrac
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20Metadata.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/Context.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/math/SafeMath.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/ERC20Basic.sol";
 
-
-contract BasicToken {
+contract BasicToken is ERC20Basic {
   /* *This creates an array with all balancesOf */
   mapping(address => uint256) private _balances;
   mapping(address => mapping(address => uint256)) private _allowances;
