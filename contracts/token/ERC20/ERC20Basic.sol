@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT License Modern Variant
 
-pragma solidity ^0.8.7;
+pragma solidity ^0.4.23;
 
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/Context.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20.sol";
