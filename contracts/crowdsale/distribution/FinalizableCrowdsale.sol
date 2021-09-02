@@ -1,8 +1,10 @@
-pragma solidity ^0.4.23;
+// SPDX-License-Identifier: MIT
 
-import "../../math/SafeMath.sol";
-import "../../ownership/Ownable.sol";
-import "../validation/TimedCrowdsale.sol";
+pragma solidity ^0.8.7;
+
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/SafeMath.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/ownership/Ownable.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/crowdsale/validation/TimedCrowdsale.sol";
 
 
 /**
