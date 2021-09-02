@@ -5,7 +5,7 @@ pragma solidity ^0.8.7;
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/Context.sol";
 
 /**
- * @dev Contract module which provides a basic access control mechanism, where
+ * dev Contract module which provides a basic access control mechanism, where
  * there is an account (an owner) that can be granted exclusive access to
  * specific functions.
  *
