@@ -8,7 +8,6 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contrac
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20Metadata.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/Context.sol";
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/SafeMath.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/MintableToken.sol";
 
 
