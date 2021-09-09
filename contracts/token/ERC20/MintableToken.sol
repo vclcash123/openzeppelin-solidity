@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.7;
 
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/StandardToken.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/ownership/Ownable.sol";
 
 
@@ -12,7 +11,7 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contrac
  * @dev Issue: * https://github.com/OpenZeppelin/openzeppelin-solidity/issues/120
  * Based on code by TokenMarketNet: https://github.com/TokenMarketNet/ico/blob/master/contracts/MintableToken.sol
  */
-contract MintableToken is StandardToken, Ownable {
+contract MintableToken is Ownable {
   event Mint(address indexed to, uint256 amount);
   event MintFinished();
 
