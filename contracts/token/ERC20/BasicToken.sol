@@ -2,13 +2,11 @@
 
 pragma solidity ^0.8.7;
 
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/ERC20Basic.sol";
-
 /**
  * @title Basic token
  * @dev Basic version of StandardToken, with no allowances.
  */
-contract BasicToken is ERC20Basic {
+contract BasicToken {
   using SafeMath for uint256;
 
   mapping(address => uint256) balances;
