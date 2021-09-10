@@ -2,8 +2,6 @@
 
 pragma solidity ^0.8.7;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/math/SafeMath.sol";
-
 
 contract BasicToken {
   /* *This creates an array with all balancesOf */
