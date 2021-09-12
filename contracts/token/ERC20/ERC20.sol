@@ -1,17 +1,13 @@
-// SPDX-License-Identifier: MIT License Modern Variant
+// SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.0;
 
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/Context.sol";
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20.sol";
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20Metadata.sol";
+import "./IERC20.sol";
+import "./extensions/IERC20Metadata.sol";
+import "../../utils/Context.sol";
 
-
-
-/** title ERC20 interface
- * dev see https://github.com/ethereum/EIPs/issues/20
- * openzeppelin/contracts/utils/Context.sol
- * dev Implementation of the {IERC20} interface.
+/**
+ * @dev Implementation of the {IERC20} interface.
  *
  * This implementation is agnostic to the way tokens are created. This means
  * that a supply mechanism has to be added in a derived contract using {_mint}.
@@ -35,7 +31,6 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contrac
  * functions have been added to mitigate the well-known issues around setting
  * allowances. See {IERC20-approve}.
  */
- 
 contract ERC20 is Context, IERC20, IERC20Metadata {
     mapping(address => uint256) private _balances;
 
