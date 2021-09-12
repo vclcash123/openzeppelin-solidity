@@ -52,8 +52,8 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contrac
      * construction.
      */
     constructor(string memory name_, string memory symbol_) {
-        _name = name_;
-        _symbol = symbol_;
+         _name = name_ ='ViPPP token';
+        _symbol = symbol_ ='VPT';
     }
 
 
