@@ -1,7 +1,7 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.8.0;
 
-import "./BasicToken.sol";
-import "./ERC20.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/BasicToken.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/ERC20.sol";
 
 
 /**
