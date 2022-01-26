@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0; 
 
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/IERC20.sol";
 
 /**
  * @dev Interface for the optional metadata functions from the ERC20 standard.
