@@ -1,7 +1,7 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.8.0;
 
-import "./StandardToken.sol";
-import "../../ownership/Ownable.sol";
+import "https://github.com/ConsenSysMesh/openzeppelin-solidity/blob/master/contracts/token/ERC20/StandardToken.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol";
 
 
 /**
