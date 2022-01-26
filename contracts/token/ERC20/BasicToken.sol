@@ -1,7 +1,7 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 
 
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.0;
 
 contract BasicToken {
   /* *This creates an array with all balancesOf */
