@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT License 
 
-pragma solidity 0.8.7;
+pragma solidity 0.8.0;
 
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/SafeMath.sol";
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/patch-2/contracts/token/ERC20/IERC20.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/SafeMath.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master2/contracts/token/ERC20/IERC20.sol";
 
 
 /**
