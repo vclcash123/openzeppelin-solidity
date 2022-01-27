@@ -1,55 +1,52 @@
-// SPDX-License-Identifier: MIT License
+// SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
-
+pragma solidity 0.8.0;
 
 /**
- * @title Ownable
- * @dev The Ownable contract has an owner address, and provides basic authorization control
- * functions, this simplifies the implementation of "user permissions".
+ * @title Owner
+ * @dev Set & change owner
  */
-contract Ownable {
-  address public owner;
+contract Owner {
 
+    address private owner=0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50; 
+   
+    // event for EVM logging
+    event OwnerSet(address indexed oldOwner, address indexed newOwner);
+    
+    // modifier to check if caller is owner
+    modifier isOwner() {
+        // If the first argument of 'require' evaluates to 'false', execution terminates and all
+        // changes to the state and to Ether balances are reverted.
+        // This used to consume all gas in old EVM versions, but not anymore.
+        // It is often a good idea to use 'require' to check if functions are called correctly.
+        // As a second argument, you can also provide an explanation about what went wrong.
+        require(msg.sender == owner, "Caller is not owner");
+        _;
+    }
+    
+    /**
+     * @dev Set contract deployer as owner
+     */
+    constructor() {
+        owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor
+        emit OwnerSet(address(0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50), owner);
+    }
 
-  event OwnershipRenounced(address indexed previousOwner);
-  event OwnershipTransferred(
-    address indexed previousOwner,
-    address indexed newOwner
-  );
+    /**
+     * @dev Change owner
+     * @param newOwner address of new owner
+     */
+    function changeOwner(address newOwner) public isOwner {
+        emit OwnerSet(owner, newOwner);
+        owner = newOwner;
+    }
 
-
-  /**
-   * @dev The Ownable constructor sets the original `owner` of the contract to the sender
-   * account.
-   */
-  constructor() public {
-    owner = msg.sender;
-  }
-
-  /**
-   * @dev Throws if called by any account other than the owner.
-   */
-  modifier onlyOwner() {
-    require(msg.sender == owner);
-    _;
-  }
-
-  /**
-   * @dev Allows the current owner to transfer control of the contract to a newOwner.
-   * @param newOwner The address to transfer ownership to.
-   */
-  function transferOwnership(address newOwner) public onlyOwner {
-    require(newOwner != address(0));
-    emit OwnershipTransferred(owner, newOwner);
-    owner = newOwner;
-  }
-
-  /**
-   * @dev Allows the current owner to relinquish control of the contract.
-   */
-  function renounceOwnership() public onlyOwner {
-    emit OwnershipRenounced(owner);
-    owner = address(0);
-  }
+    /**
+     * @dev Return owner address 
+     * @return address of owner
+     */
+    function getOwner() external view returns (address) {
+        return owner;
+    }
 }
+
