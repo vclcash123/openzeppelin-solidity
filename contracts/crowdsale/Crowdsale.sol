@@ -5,7 +5,6 @@ pragma solidity 0.8.0;
 // import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/IERC20.sol";
 
-
 // CAUTION
 // This version of SafeMath should only be used with Solidity 0.8 or later,
 // because it relies on the compiler's built in overflow checks.
@@ -164,9 +163,7 @@ library SafeMath {
      *
      * Counterpart to Solidity's `-` operator.
      *
-     * Requirements:
-     *
-     * - Subtraction cannot overflow.
+     * Requirements: - Subtraction cannot overflow.
      */
     function sub(
         uint256 a,
@@ -229,7 +226,6 @@ library SafeMath {
     }
 }
 
-
 /**
  * @title Crowdsale
  * @dev Crowdsale is a base contract for managing a token crowdsale,
@@ -260,14 +256,13 @@ contract Crowdsale {
   // Amount of wei raised
   uint256 public weiRaised;
 
-    // Public Supply
+  // Public Supply
     uint256 public publicSupply;
  
   // start and end timestamps where investments are allowed (both inclusive)
    uint256 public startTime;
    uint256 public endTime;
   
-
   /**
    * Event for token purchase logging
    * @param purchaser who paid for the tokens
@@ -302,8 +297,6 @@ constructor (uint256 _startTime, uint256 _endTime, uint256 _rate, address payabl
     
   }
 
-
-
   // -----------------------------------------
   // Crowdsale external interface
   // -----------------------------------------
@@ -321,13 +314,15 @@ constructor (uint256 _startTime, uint256 _endTime, uint256 _rate, address payabl
 
   
   /**
-   * @dev low level token purchase ***DO NOT OVERRIDE***
-   * @param _beneficiary Address performing the token purchase
+   * dev low level token purchase ***DO NOT OVERRIDE***
+   * param _beneficiary Address performing the token purchase
    */
+
  function buyTokens(address _beneficiary) public payable {
     require(_beneficiary != address(0));
     uint256 weiAmount = msg.value;
-  //  _preValidatePurchase(_beneficiary, weiAmount);
+
+     _preValidatePurchase(_beneficiary, weiAmount);
 
     // calculate token amount to be created
     uint256 tokens = _getTokenAmount(weiAmount);
@@ -335,14 +330,12 @@ constructor (uint256 _startTime, uint256 _endTime, uint256 _rate, address payabl
     // update state
     weiRaised = weiRaised.add(weiAmount);
 
-   // _processPurchase(_beneficiary, token);
+    _processPurchase(_beneficiary, weiAmount); //uint256 tokens
     emit TokenPurchase(msg.sender, _beneficiary, weiAmount, tokens);
 
     _updatePurchasingState(_beneficiary, weiAmount);
 
     _forwardFunds();
-    
-     
   }
 
   // -----------------------------------------
@@ -353,7 +346,8 @@ constructor (uint256 _startTime, uint256 _endTime, uint256 _rate, address payabl
    * @dev Validation of an incoming purchase. Use require statements to revert state when conditions are not met. Use super to concatenate validations.
    * @param _beneficiary Address performing the token purchase
    * @param _weiAmount Value in wei involved in the purchase
-   
+  */ 
+
   function _preValidatePurchase(
     address _beneficiary,
     uint256 _weiAmount
@@ -362,32 +356,14 @@ constructor (uint256 _startTime, uint256 _endTime, uint256 _rate, address payabl
   {
     require(_beneficiary != address(0));
     require(_weiAmount != 0);
+    _preValidatePurchase(_beneficiary,_weiAmount);
   }
   
-*/
-
-  /**
-   * @dev Source of tokens. Override this method to modify the way in which the crowdsale ultimately gets and sends its tokens.
-   * @param _beneficiary Address performing the token purchase
-   * @param _tokenAmount Number of tokens to be emitted
-  
-
-  function _deliverTokens(
-    address _beneficiary,
-    uint256 _tokenAmount
-  )
-    internal
-  {
-  token.transfer(_beneficiary, _tokenAmount);
-  }
-
-   */
-
-
   /**
    * @dev Executed when a purchase has been validated and is ready to be executed. Not necessarily emits/sends tokens.
    * @param _beneficiary Address receiving the tokens
    * @param _tokenAmount Number of tokens to be purchased
+   */
   
   function _processPurchase(
     address _beneficiary,
@@ -395,11 +371,23 @@ constructor (uint256 _startTime, uint256 _endTime, uint256 _rate, address payabl
   )
     internal
   {
-    _deliverTokens(_beneficiary, _tokenAmount);
+    _processPurchase(_beneficiary, _tokenAmount);
   }
 
- */
+  /**
+   * dev Source of tokens. Override this method to modify the way in which the crowdsale ultimately gets and sends its tokens.
+   * param _beneficiary Address performing the token purchase
+   * param _tokenAmount Number of tokens to be emitted
+   */
 
+  function _deliverTokens(
+    address _beneficiary,
+    uint256 _tokenAmount
+  )
+    internal  // token.transfer
+  {
+  _deliverTokens(_beneficiary, _tokenAmount);
+  }
 
   /**
    * @dev Override for extensions that require an internal state to check for validity (current user contributions, etc.)
