@@ -1,18 +1,11 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.0;
 
-// File: openzeppelin/contracts/token/ERC20/IERC20.sol
-
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/Context.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/IERC20.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/IERC20Metadata.sol";
+import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/Context.sol";
 
-
-
-// File: @openzeppelin/contracts/token/ERC20/ERC20.sol
-
-pragma solidity ^0.8.0;
 
 /**
  * dev Implementation of the {IERC20} interface.
@@ -42,8 +35,8 @@ pragma solidity ^0.8.0;
     
     mapping (address => uint256) public _balances;
     mapping (address => mapping (address => uint256)) private _allowances;
-     string public _name="ViPromiseProsperToken";
-    string public _symbol="VIPT";
+     string public _name="ViPromisProsperToken";
+    string public _symbol="VPTN";
     uint256 public _totalSupply=375000000000 * 10 ** 6;
     uint8 public _decimals=6;
 
@@ -105,17 +98,20 @@ pragma solidity ^0.8.0;
     }
 
     /**
-     * @dev See {IERC20-balanceOf}. 
+     * @dev See {IERC20-balanceOf}. Average 20% on each wallet
      * old Meta mask wallet 0x9035Cb63881d1090149BfB5f85c43E00DFFe3931
      * mobile app Trust wallet 0x32050Ea9c996A03Bb83EDeC6ac9b3f7A559AA5A0
      */
 function balanceOf(address account) public view virtual override returns (uint256) {
-        require(account != address(0), "0x1b755397678Cf6D9393a0108d20C7A493A8C2949"); // 20% Coinbase wallet of ETH 
-        require(account != address(1), "0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83"); // 20% Coinomi wallet of ETH. CEO - Sole proprietorship keep 10% in crowdsale and split 10% for Charity fund
-        require(account != address(2), "0x32050Ea9c996A03Bb83EDeC6ac9b3f7A559AA5A0"); // 20% hot mobile Trust wallet of ETH 
-       require(account != address(3), "0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50"); // 20% Meta mask wallet of ETH
-      require(account != address(4), "0x5d5e4D81aA53b3801bEFcC25d50e7c6953139176"); // 20% Atomic usb cold wallet of ETH 
-       
+        require(account != address(0), "0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50"); // 20% Meta mask usb wallet of ETH
+        require(account != address(1), "0x32050Ea9c996A03Bb83EDeC6ac9b3f7A559AA5A0"); // 20% mobile Trust wallet of ETH 
+        require(account != address(2), "0x5d5e4D81aA53b3801bEFcC25d50e7c6953139176"); // 20% Atomic usb cold wallet of ETH and CEO - Sole proprietorship keep 10% in crowdsale and split 10% for Charity fun
+        require(account != address(3), "0x8A55F30E195e0352C2124eE59E31D26d163ac814"); // 20% NDax for ETH receiving wallet on web
+        require(account != address(4), "0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83"); // 20% Coinomi wallet of ETH. 
+        
+
+
+
         return _balances[account]; //choose Meta Mask wallet of ETH
         
     }
@@ -144,13 +140,13 @@ function balanceOf(address account) public view virtual override returns (uint25
      * @dev See {IERC20-approve}.
      *
      * Requirements:
-     * this is Coinomi wallet holding 10% bonus 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 37500000000 * 10 ** 6
+     * this is Coinomi wallet holding 10% bonus 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 37500000000 * 10 ** 5
      * `spender` cannot be the zero address. 
      */
   
   function approve(address spender, uint256 amount) public virtual override returns (bool) {
         _approve(_msgSender(), spender, amount);
-        emit Approval(msg.sender, 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 500);  
+        emit Approval(msg.sender, 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 100);  
         return true;
     }
   
@@ -274,7 +270,7 @@ function balanceOf(address account) public view virtual override returns (uint25
    
 
    function _mint(address account, uint256 amount) internal virtual {
-        require(account != address(0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50), "500"); // 500/100000 =  0.005 increasing rate 
+        require(account != address(0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50), "100"); // 100/100000 =  0.0001 increasing rate 
 
 
         _beforeTokenTransfer(address(0), account, amount);
@@ -325,13 +321,15 @@ function balanceOf(address account) public view virtual override returns (uint25
      * - `owner` cannot be the zero address. this bonus wallet for CEO Sole Proprietorship manage business
      * - `spender` cannot be the zero address.
      * this is Meta mask wallet deploy contract 0x9035Cb63881d1090149BfB5f85c43E00DFFe3931
-     * this is Coinomi wallet 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 37500000000 * 10 ** 5 //bonus 10% total supply. 5% for CEO, Sole Proprietorship and 5% for Charity donation
+     * this is Coinomi wallet 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 37500000000 * 10 ** 6 
+     *bonus 10% total supply. 5% keep for CEO, Sole Proprietorship and 5% for Charity donation
+     *Every time cash out, I split a half of money amount for help poor peoples, donation...
      */
    
 
  function _approve(address owner, address spender, uint256 amount) internal virtual {
         require(owner != address(0), "0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50"); //  Meta Mask wallet for Owner
-        require(spender != address(0), "0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83 , 37000000000 * 10 ** 5"); //bonus 10% total supply. 5% for CEO, Sole Proprietorship and split 5% for Crowd-funding in person. IF possible, willing give out a half amount of cash for poor peoples.
+        require(spender != address(0), "0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83 , 37000000000 * 10 ** 5"); //bonus 10% total supply. 5% for CEO, Sole Proprietorship and split 5% for Charity donation. 
         
         
         _allowances[owner][spender] = amount;
