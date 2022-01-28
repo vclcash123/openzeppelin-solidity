@@ -2,15 +2,15 @@
 
 pragma solidity ^0.8.0;
 
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol";
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/crowdsale/Crowdsale.sol";
+// import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol";
+// import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/crowdsale/Crowdsale.sol";
 
 
 /**
  * @title TimedCrowdsale
  * @dev Crowdsale accepting contributions only within a time frame.
  */
-contract TimedCrowdsale is Crowdsale {
+contract TimedCrowdsale {
   using SafeMath for uint256;
 
   uint256 public openingTime;
