@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.0;
 
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/crowdsale/validation/TimedCrowdsale.sol";
+// import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/crowdsale/validation/TimedCrowdsale.sol";
 // import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol";
 
 
