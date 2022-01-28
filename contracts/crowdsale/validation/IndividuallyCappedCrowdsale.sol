@@ -2,16 +2,16 @@
 
 pragma solidity ^0.8.0;
 
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol";
+// import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol";
 import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/crowdsale/Crowdsale.sol";
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol";
+// import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol";
 
 
 /**
  * @title IndividuallyCappedCrowdsale
  * @dev Crowdsale with per-user caps.
  */
-contract IndividuallyCappedCrowdsale is Crowdsale, Ownable {
+contract IndividuallyCappedCrowdsale {
   using SafeMath for uint256;
 
   mapping(address => uint256) public contributions;
@@ -22,27 +22,11 @@ contract IndividuallyCappedCrowdsale is Crowdsale, Ownable {
    * @param _beneficiary Address to be capped
    * @param _cap Wei limit for individual contribution
    */
-  function setUserCap(address _beneficiary, uint256 _cap) external onlyOwner {
+  function setUserCap(address _beneficiary, uint256 _cap) external {
     caps[_beneficiary] = _cap;
   }
 
-  /**
-   * @dev Sets a group of users' maximum contribution.
-   * @param _beneficiaries List of addresses to be capped
-   * @param _cap Wei limit for individual contribution
-   */
-  function setGroupCap(
-    address[] _beneficiaries,
-    uint256 _cap
-  )
-    external
-    onlyOwner
-  {
-    for (uint256 i = 0; i < _beneficiaries.length; i++) {
-      caps[_beneficiaries[i]] = _cap;
-    }
-  }
-
+ 
   /**
    * @dev Returns the cap of a specific user.
    * @param _beneficiary Address whose cap is to be checked
@@ -63,7 +47,7 @@ contract IndividuallyCappedCrowdsale is Crowdsale, Ownable {
     return contributions[_beneficiary];
   }
 
-  /**
+ /**
    * @dev Extend parent behavior requiring purchase to respect the user's funding cap.
    * @param _beneficiary Token purchaser
    * @param _weiAmount Amount of wei contributed
@@ -74,7 +58,7 @@ contract IndividuallyCappedCrowdsale is Crowdsale, Ownable {
   )
     internal
   {
-    super._preValidatePurchase(_beneficiary, _weiAmount);
+    _preValidatePurchase(_beneficiary, _weiAmount);
     require(contributions[_beneficiary].add(_weiAmount) <= caps[_beneficiary]);
   }
 
@@ -89,7 +73,7 @@ contract IndividuallyCappedCrowdsale is Crowdsale, Ownable {
   )
     internal
   {
-    super._updatePurchasingState(_beneficiary, _weiAmount);
+    _updatePurchasingState(_beneficiary, _weiAmount);
     contributions[_beneficiary] = contributions[_beneficiary].add(_weiAmount);
   }
 
