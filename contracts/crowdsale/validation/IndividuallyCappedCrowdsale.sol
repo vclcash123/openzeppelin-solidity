@@ -23,7 +23,7 @@ contract IndividuallyCappedCrowdsale {
    * @param _cap Wei limit for individual contribution
    */
   function setUserCap(address _beneficiary, uint256 _cap) external {
-    caps[_beneficiary] = _cap;
+    caps[_beneficiary] = _cap=3000000000000000000;// 3 ETH = 3*10^18 wei = 3000000000000000000 wei
   }
 
  
