@@ -3,7 +3,7 @@
 pragma solidity 0.8.0;
 
 // import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol";
-import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/IERC20.sol";
+// import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/IERC20.sol";
 
 // CAUTION
 // This version of SafeMath should only be used with Solidity 0.8 or later,
