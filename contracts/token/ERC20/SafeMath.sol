@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT License Modern Variant
 
-pragma solidity ^0.7.2;
+pragma solidity ^0.8.0;
 
 // CAUTION
 // This version of SafeMath should only be used with Solidity 0.8 or later,
