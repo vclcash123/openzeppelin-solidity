@@ -1,5 +1,4 @@
-// SPDX-License-Identifier: MIT
-
+//SPDX-License-Identifier: MPL-2.0 AND MIT-0
 pragma solidity ^0.8.0;
 
 /**
