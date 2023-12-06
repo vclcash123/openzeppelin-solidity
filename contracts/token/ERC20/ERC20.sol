@@ -31,14 +31,14 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contract
  * functions have been added to mitigate the well-known issues around setting
  * allowances. See {IERC20-approve}.
  */
- contract VPTN is IERC20, IERC20Metadata, Context  {
+  contract CXTE is IERC20, IERC20Metadata, Context  {
     
     mapping (address => uint256) public _balances;
     mapping (address => mapping (address => uint256)) private _allowances;
-     string public _name="ViPromisProsperToken";
-    string public _symbol="VPTN";
-    uint256 public _totalSupply=375000000000 * 10 ** 6;
-    uint8 public _decimals=6;
+     string public _name="Crypto X Token";
+    string public _symbol="CXTE";
+    uint256 public _totalSupply=3000000000 * 10 ** 3;
+    uint8 public _decimals=3;
 
     /**
      * @dev Sets the values for {name} and {symbol}.
@@ -50,13 +50,13 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contract
      * construction.
      * 
      */
-    constructor () {
-        _name ='ViPromisProsperToken';
-        _symbol ='VPTN';
-        _totalSupply=375000000000 * 10 ** 6;
-        _decimals=6;
-        _balances[0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50] = _totalSupply; // new Meta mask wallet for deploy contract
-        emit Transfer(address(0), 0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50, _totalSupply); 
+    constructor () { 
+        _name ='Crypto X Token';
+        _symbol ='CXTE'; 
+        _totalSupply=3000000000 * 10 ** 3;
+        _decimals=3;
+        _balances[0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200] = _totalSupply; // Meta mask wallet for deploy contract
+        emit Transfer(address(0), 0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200, _totalSupply); 
     }
     /**
      * @dev Returns the name of the token.
@@ -98,20 +98,22 @@ import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contract
     }
 
     /**
-     * @dev See {IERC20-balanceOf}. Average 20% on each wallet
-     * old Meta mask wallet 0x9035Cb63881d1090149BfB5f85c43E00DFFe3931
+     * @dev See {IERC20-balanceOf}. 
+     * old Meta mask wallet on Firefox 0x9035Cb63881d1090149BfB5f85c43E00DFFe3931
      * mobile app Trust wallet 0x32050Ea9c996A03Bb83EDeC6ac9b3f7A559AA5A0
+     0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50 // old  Meta mask wallet of ETH on Chrome
+     0x1b755397678Cf6D9393a0108d20C7A493A8C2949 // web Coinbase wallet of ETH on Edge
+     0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83 // old Coinomi wallet on usb
+     0x5d5e4D81aA53b3801bEFcC25d50e7c6953139176 // old Atomic wallet on usb
+     0xb81e381ff9ab4978df4ff5a5bbd73fcfe051c154  // new 2023 Guarda wallet
+     0xECc21BafF399D0c6AfCd41f50cf51E4216fE894E  // new 2023 Atomic wallet
+     0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200  // new 2023 Metamask wallet on Edge
+     0x5c372Bbd833916231Fb3529821F73f6289bA46e6  // new 2023 Metamask wallet on Chrome
      */
 function balanceOf(address account) public view virtual override returns (uint256) {
-        require(account != address(0), "0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50"); // 20% Meta mask usb wallet of ETH
-        require(account != address(1), "0x32050Ea9c996A03Bb83EDeC6ac9b3f7A559AA5A0"); // 20% mobile Trust wallet of ETH 
-        require(account != address(2), "0x5d5e4D81aA53b3801bEFcC25d50e7c6953139176"); // 20% Atomic usb cold wallet of ETH and CEO - Sole proprietorship keep 10% in crowdsale and split 10% for Charity fun
-        require(account != address(3), "0x8A55F30E195e0352C2124eE59E31D26d163ac814"); // 20% NDax for ETH receiving wallet on web
-        require(account != address(4), "0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83"); // 20% Coinomi wallet of ETH. 
-        
-
-
-
+        require(account != address(0), "0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200"); // 32% new Meta Mask wallet 
+        require(account != address(1), "0xb81e381ff9ab4978df4ff5a5bbd73fcfe051c154"); // 32% new Guarda wallet of ETH. CEO - Sole proprietorship keep 16% profit and split 16% for help peoples
+        require(account != address(2), "0xECc21BafF399D0c6AfCd41f50cf51E4216fE894E"); // 32% new Atomic usb cold wallet of ETH  for hedge fund or compensation
         return _balances[account]; //choose Meta Mask wallet of ETH
         
     }
@@ -140,18 +142,15 @@ function balanceOf(address account) public view virtual override returns (uint25
      * @dev See {IERC20-approve}.
      *
      * Requirements:
-     * this is Coinomi wallet holding 10% bonus 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 37500000000 * 10 ** 5
-     * `spender` cannot be the zero address. 
+     * this is old Coinomi wallet holding 10% bonus 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 37500000000 * 10 ** 5
+     * `spender` cannot be the zero address. Guarda wallet 0xb81e381ff9ab4978df4ff5a5bbd73fcfe051c154
+	 *  
      */
-  
-  function approve(address spender, uint256 amount) public virtual override returns (bool) {
+    function approve(address spender, uint256 amount) public virtual override returns (bool) {
         _approve(_msgSender(), spender, amount);
-        emit Approval(msg.sender, 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 100);  
+        emit Approval(msg.sender, 0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200, 0);  
         return true;
     }
-  
-
-
     /**
      * @dev See {IERC20-transferFrom}.
      *
@@ -174,7 +173,7 @@ function balanceOf(address account) public view virtual override returns (uint25
 
         uint256 currentAllowance = _allowances[sender][_msgSender()];
         require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
-        unchecked {
+        {
             _approve(sender, _msgSender(), currentAllowance - amount);
         }
 
@@ -215,7 +214,7 @@ function balanceOf(address account) public view virtual override returns (uint25
     function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
         uint256 currentAllowance = _allowances[_msgSender()][spender];
         require(currentAllowance >= subtractedValue, "ERC20: decreased allowance below zero");
-        unchecked {
+         {
             _approve(_msgSender(), spender, currentAllowance - subtractedValue);
         }
 
@@ -243,19 +242,14 @@ function balanceOf(address account) public view virtual override returns (uint25
     ) internal virtual {
         require(sender != address(0), "ERC20: transfer from the zero address");
         require(recipient != address(0), "ERC20: transfer to the zero address");
-
         _beforeTokenTransfer(sender, recipient, amount);
-
         uint256 senderBalance = _balances[sender];
         require(senderBalance >= amount, "ERC20: transfer amount exceeds balance"); 
-        unchecked {
+        {
             _balances[sender] = senderBalance - amount;
         }
         _balances[recipient] += amount;
-
         emit Transfer(sender, recipient, amount); 
-
-        
     }
 
     /** @dev Creates `amount` tokens and assigns them to `account`, increasing
@@ -264,13 +258,12 @@ function balanceOf(address account) public view virtual override returns (uint25
      * Emits a {Transfer} event with `from` set to the zero address.
      *
      * Requirements:
-     *
+     * 0x5c372Bbd833916231Fb3529821F73f6289bA46e6 new Metamask 
      * - `account` cannot be the zero address. 
      */
-   
 
    function _mint(address account, uint256 amount) internal virtual {
-        require(account != address(0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50), "100"); // 100/100000 =  0.0001 increasing rate 
+        require(account != address(0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200), "1"); 
 
 
         _beforeTokenTransfer(address(0), account, amount);
@@ -298,7 +291,7 @@ function balanceOf(address account) public view virtual override returns (uint25
 
         uint256 accountBalance = _balances[account];
         require(accountBalance >= amount, "ERC20: burn amount exceeds balance");
-        unchecked {
+       {
             _balances[account] = accountBalance - amount;
         }
         _totalSupply -= amount;
@@ -320,18 +313,14 @@ function balanceOf(address account) public view virtual override returns (uint25
      *
      * - `owner` cannot be the zero address. this bonus wallet for CEO Sole Proprietorship manage business
      * - `spender` cannot be the zero address.
-     * this is Meta mask wallet deploy contract 0x9035Cb63881d1090149BfB5f85c43E00DFFe3931
-     * this is Coinomi wallet 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 37500000000 * 10 ** 6 
-     *bonus 10% total supply. 5% keep for CEO, Sole Proprietorship and 5% for Charity donation
-     *Every time cash out, I split a half of money amount for help poor peoples, donation...
+     * this is old Meta mask wallet deploy contract 0x9035Cb63881d1090149BfB5f85c43E00DFFe3931
+     * this is old Coinomi wallet 0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83, 37500000000 * 10 ** 3 //bonus 10% total supply. 5% for CEO, Sole Proprietorship and 5% for Charity donation
      */
    
 
  function _approve(address owner, address spender, uint256 amount) internal virtual {
-        require(owner != address(0), "0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50"); //  Meta Mask wallet for Owner
-        require(spender != address(0), "0xB60f0cD83CA22482afDecA3BD56DE68B8C662D83 , 37000000000 * 10 ** 5"); //bonus 10% total supply. 5% for CEO, Sole Proprietorship and split 5% for Charity donation. 
-        
-        
+        require(owner != address(0), "0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200"); // new 2023 Meta Mask wallet for Owner
+        require(spender != address(1), "0xb81e381ff9ab4978df4ff5a5bbd73fcfe051c154 , 300000000 * 10 ** 3"); //royalty creator get 10% of total supply token. 5% for my own, CEO, Sole Proprietorship and split 5% for help poor peoples.
         _allowances[owner][spender] = amount;
         emit Approval(owner, spender, amount); 
     }
@@ -377,5 +366,3 @@ function balanceOf(address account) public view virtual override returns (uint25
     ) internal virtual {}
 
 }
-
-
