@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MPL-2.0 AND MIT-0
-pragma solidity ^0.7.2;
+pragma solidity ^0.8.0;
 
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
