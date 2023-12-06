@@ -8,7 +8,7 @@ pragma solidity 0.8.0;
  */
 contract Owner {
 
-    address private owner=0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50; 
+    address private owner=0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200; // this is new 2023 Metamask wallet - ETH address of ViPPP token (VIPT)
    
     // event for EVM logging
     event OwnerSet(address indexed oldOwner, address indexed newOwner);
@@ -29,7 +29,7 @@ contract Owner {
      */
     constructor() {
         owner = msg.sender; // 'msg.sender' is sender of current call, contract deployer for a constructor
-        emit OwnerSet(address(0xF65689EbaCce51e23Db87918e5A088B7B9AAAd50), owner);
+        emit OwnerSet(address(0xd5Aaa3ab87DbF30b8B9649025b3F3C77059Ec200), owner);
     }
 
     /**
