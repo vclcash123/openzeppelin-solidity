@@ -1,6 +1,6 @@
-// SPDX-License-Identifier: MIT
+//SPDX-License-Identifier: MPL-2.0 AND MIT-0
 
-pragma solidity 0.8.0;
+pragma solidity ^0.8.0;
 
 // import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/IERC20.sol";
 // import "https://github.com/vclcash123/openzeppelin-solidity/blob/master/contracts/token/ERC20/IERC20Metadata.sol";
